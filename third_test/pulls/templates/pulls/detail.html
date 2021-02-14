@@ -1,0 +1,9 @@
+
+{% block content %}
+    <h1>{{ que.questions_text }}</h1>
+    <ul>
+        {% for choice in que.choise_set.all %}
+            <li>{{ choice.choise_text }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

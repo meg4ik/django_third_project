@@ -1,0 +1,13 @@
+
+
+{% block content %}
+    {% if latest_que %}
+        <ul>
+            {% for questions in latest_que %}
+                <li><a href="{% url 'pulls:detail' questions.id %}">{{ questions.questions_text }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no pulls</p>
+    {% endif %}
+{% endblock %}
