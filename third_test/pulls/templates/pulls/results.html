@@ -1,0 +1,9 @@
+<h1>{{ que.question_text }}</h1>
+
+<ul>
+    {% for choise in que.choise_set.all %}
+        <li>{{ choise.choise_text }} - {{ choise.votes }} vote{{ choise.votes|pluralize }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'pulls:detail' que.id %}">Vote again</a>

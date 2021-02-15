@@ -1,9 +1,12 @@
 
 {% block content %}
     <h1>{{ que.questions_text }}</h1>
-    <ul>
+    <form action="{% url 'pulls:vote' que.id %}" method="POST">
+        {% csrf_token %}
         {% for choice in que.choise_set.all %}
-            <li>{{ choice.choise_text }}</li>
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+            <label for="choice{{ forloop.counter }}">{{ choice.choise_text }}</label>
         {% endfor %}
-    </ul>
+        <input type="submit" value="Vote">
+    </form>
 {% endblock %}
