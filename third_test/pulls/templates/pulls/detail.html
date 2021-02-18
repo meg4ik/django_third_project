@@ -1,4 +1,4 @@
-
+{% extends 'pulls/base.html' %}
 {% block content %}
     <h1>{{ que.questions_text }}</h1>
     <form action="{% url 'pulls:vote' que.id %}" method="POST">
